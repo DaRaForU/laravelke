@@ -4,7 +4,6 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <title>My Contact</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Varela+Round">
     <!-- Style -->
@@ -15,7 +14,7 @@
 <!-- navbar -->
 <nav class="navbar navbar-expand-lg bg-light">
     <div class="container">
-        <a class="navbar-brand text-uppercase" href="index.html">
+        <a class="navbar-brand text-uppercase" href="/">
             <strong><i class="bi bi-person-lines-fill me-1"></i>Contact</strong> App
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,8 +25,8 @@
             </ul>
             <form class="d-flex" role="search">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item mx-1"><a href="#" class="btn btn-outline-secondary">Login</a></li>
-                    <li class="nav-item mx-1"><a href="#" class="btn btn-outline-primary">Register</a></li>
+                    <li class="nav-item mx-1"><a href="{{route('login')}}" class="btn btn-outline-secondary">Login</a></li>
+                    <li class="nav-item mx-1"><a href="{{route('register')}}" class="btn btn-outline-primary">Register</a></li>
                 </ul>
             </form>
         </div>

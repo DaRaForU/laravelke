@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Company;
 use App\Models\Contact;
 use App\Repository\CompanyRepositories;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ContactController extends Controller
 {
@@ -16,6 +16,7 @@ class ContactController extends Controller
 //    }
 
     public function index(CompanyRepositories $company){
+//        dd(Auth::user());
         $contacts = Contact::where(function ($query){
             if ($companyID = request()->query("company_id")){
                 $query->where("company_id", $companyID);

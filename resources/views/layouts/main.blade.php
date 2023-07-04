@@ -25,6 +25,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            @auth
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="#">Company</a>
@@ -33,21 +34,23 @@
                     <a class="nav-link active" href="{{route('contacts.index')}}">Contact</a>
                 </li>
             </ul>
-            <form class="d-flex" role="search">
+            @endauth
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item mx-1"><a href="#" class="btn btn-outline-primary"><i class="bi bi-box-arrow-in-right me-1"></i>Login</a></li>
-                    <li class="nav-item mx-1"><a href="#" class="btn btn-outline-primary"><i class="bi bi-person-plus-fill me-1"></i></i>Register</a></li>
+                    @guest
+                    <li class="nav-item mx-1"><a href="{{route('login')}}" class="btn btn-outline-primary"><i class="bi bi-box-arrow-in-right me-1"></i>Login</a></li>
+                    <li class="nav-item mx-1"><a href="{{route('register')}}" class="btn btn-outline-primary"><i class="bi bi-person-plus-fill me-1"></i></i>Register</a></li>
+                    @else
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            John Doe
+                            {{Auth::user()->name}}
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="profile.html">Settings</a></li>
-                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                            <li><form action="{{route('logout')}}" method="POST">@csrf <BUTTON class="dropdown-item">Logout</BUTTON></form></li>
                         </ul>
                     </li>
+                    @endguest
                 </ul>
-            </form>
         </div>
     </div>
 </nav>
